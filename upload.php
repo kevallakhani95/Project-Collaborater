@@ -52,6 +52,12 @@
             $sqlquery = "insert into languages(id, Language) values('$id', '$selected')";
             $result = $conn->query($sqlquery);
         }
+
+       echo '<div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Well done!</strong> Your project has been successfully added</a>.
+        </div>';
+
   }
 ?>
 
