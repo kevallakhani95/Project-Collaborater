@@ -22,10 +22,19 @@ require "dbconn.php";
 
 $usrName = $_SESSION['userSession'];
 
+
+
 if(isset($_POST['btnlogout']))
 {
   session_destroy();
   header("Location: index.php");
+}
+
+if(isset($_POST['bnsubmit']))
+{
+    $seat = $_POST['seartext'];
+    $_SESSION['userSearch'] = $seat;
+    header("Location: searchresult.php");
 }
 
 ?>
@@ -52,11 +61,11 @@ if(isset($_POST['btnlogout']))
       <ul class="nav navbar-nav">
         <li><a href="recent.php">Recent Projects </a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form method="post" class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search by language.." name="seartext">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" name="bnsubmit">Submit</button>
       </form>
       <form method="post" class="navbar-form navbar-right">
       <span style="margin-top:0.2em" class="nav navbar-nav navbar-right">
