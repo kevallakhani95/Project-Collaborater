@@ -1,8 +1,3 @@
-<?php
-  ini_set('mysql.connect_timeout', 300);
-  ini_set('default_socket_timeout', 300);
-  error_reporting(0);
-?>
 <html>
 <head>
 
@@ -20,7 +15,6 @@
 
 
 <body>
-<<<<<<< HEAD
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -43,42 +37,14 @@
       <ul class="nav navbar-nav">
         <li><a href="recent.php">Recent Projects </a></li>
       </ul>
-      <form method="post" class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-      </form>
-      <form method="post" class="navbar-form navbar-right">
-      <span style="margin-top:0.2em" class="nav navbar-nav navbar-right">
-        <button type="submit" class="btn btn-secondary" name="btnlogout">Logout</button></span>
+        <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
   </div>
 </nav>
-=======
-	
->>>>>>> origin/master
-
-<div class="panel-primary" align="center" >
-  <h1>Collaboration   |  Learning</h1>
-  <p>More you collaborate, more you learn!</p>
-</div>
-
-
-<?php
-session_start();
-require "navbar.php";
-require "dbconn.php";
-$usrName = $_SESSION['userSession'];
-
-if(isset($_POST['btnlogout']))
-{
-  session_destroy();
-  header("Location: index.php");
-}
-
-?>
 </body>
 </html>
