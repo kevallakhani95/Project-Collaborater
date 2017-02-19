@@ -21,11 +21,12 @@
 
 <body>
 	
-
 <?php
 session_start();
-require "navbar.php";
+
 require "dbconn.php";
+require "navbar.php";
+
 $usrName = $_SESSION['userSession'];
 
 $sqlquery = "select * from projects where username='".$usrName."' order by Id desc";
@@ -57,7 +58,7 @@ while($row = mysqli_fetch_array($result))                     // Display all ima
               <div class="span8">
                 <p></p>
                 <p>
-                   <i class="icon-tags"></i> Tags : ';
+                   <i class="icon-tags"></i> Languages : ';
                     
                    while($lan = mysqli_fetch_array($res))
                    { 

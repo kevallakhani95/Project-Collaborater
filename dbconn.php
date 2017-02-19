@@ -37,7 +37,6 @@ if (!$conn) {
 else
 {
 	//echo "Connection made";
-	echo "<br>";
 }
 ?>
     

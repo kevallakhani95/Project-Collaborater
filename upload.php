@@ -20,11 +20,12 @@
 
 <body>
   
-  
 <?php
   session_start();
-  require "navbar.php";
+  
   require "dbconn.php";
+  require "navbar.php";
+  
   $usrName = $_SESSION['userSession'];
   
   if(isset($_POST['btncancel']))

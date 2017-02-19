@@ -15,6 +15,21 @@
 
 
 <body>
+
+<?php
+session_start();
+require "dbconn.php";
+
+$usrName = $_SESSION['userSession'];
+
+if(isset($_POST['btnlogout']))
+{
+  session_destroy();
+  header("Location: index.php");
+}
+
+?>
+
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -42,6 +57,10 @@
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <form method="post" class="navbar-form navbar-right">
+      <span style="margin-top:0.2em" class="nav navbar-nav navbar-right">
+        <button type="submit" class="btn btn-secondary" name="btnlogout">Logout</button></span>
       </form>
     </div>
   </div>

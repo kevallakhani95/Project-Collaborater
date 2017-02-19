@@ -1,3 +1,8 @@
+<?php
+  ini_set('mysql.connect_timeout', 300);
+  ini_set('default_socket_timeout', 300);
+  error_reporting(0);
+?>
 <html>
 <head>
 
@@ -16,14 +21,14 @@
 
 <body>
 	
-
 <?php
 session_start();
-require "navbar.php";
 require "dbconn.php";
+require "navbar.php";
+
 $usrName = $_SESSION['userSession'];
 
-$sqlquery = "select * from projects";
+$sqlquery = "select * from projects order by Id desc";
 $result = $conn->query($sqlquery);
 
 while($row = mysqli_fetch_array($result))                     // Display all images
@@ -52,7 +57,7 @@ while($row = mysqli_fetch_array($result))                     // Display all ima
               <div class="span8">
                 <p></p>
                 <p>
-                   <i class="icon-tags"></i> Tags : ';
+                   <i class="icon-tags"></i> Languages : ';
                     
                    while($lan = mysqli_fetch_array($res))
                    { 
