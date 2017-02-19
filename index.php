@@ -1,3 +1,8 @@
+<?php
+  ini_set('mysql.connect_timeout', 300);
+  ini_set('default_socket_timeout', 300);
+  error_reporting(0);
+?>
 <html>
  <head>
     <meta charset="utf-8">
@@ -61,12 +66,12 @@
 
         if($password == $row['password'] && $count==1)                    // Validate password in database with entered field
         {
-          $_SESSION['userSession'] = $name;                       // To access the username in other files we pass it in session variable
+          $_SESSION['userSession'] = $name;   // To access the username in other files we pass it in session variable
           header("Location: home.php");
         }
         else
         {
-          echo "Invalid username or password";
+          echo "</t>Invalid username or password";
         }
       }
       

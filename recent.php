@@ -51,10 +51,62 @@
 session_start();
 require "dbconn.php";
 $usrName = $_SESSION['userSession'];
+
+$sqlquery = "select * from projects";
+$result = $conn->query($sqlquery);
+
+while($row = mysqli_fetch_array($result))                     // Display all images
+{
+  $sqlquery1 = "select Language from languages where Id =".$row[0]."";
+  $res = $conn->query($sqlquery1);
+        echo '<div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="row">
+              <div class="span8">
+                <h4><strong>'.$row[2].'</strong></h4>
+                <h5>Looking for: '.$row[4].'</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span10">      
+                <p>
+                  '.$row[3].'
+
+                </p>
+               <!-- <p><a class="btn" href="#">Read more</a></p> -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="span8">
+                <p></p>
+                <p>
+                   <i class="icon-tags"></i> Tags : ';
+                    
+                   while($lan = mysqli_fetch_array($res))
+                   { 
+                      echo '<span class="label label-info" style="margin-left: 1em">'.$lan[0].'</span>';  
+                   }
+                   
+                echo '</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span8">
+                <p></p>
+                <p>
+                  <i class="icon-user"></i> by <a href="#">'.$row[1].'</a><br> 
+                   <i class="icon-calendar"></i> Contact: '.$row[5].'
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>';         
+}
+
 ?>
-<div class="panel-primary" align="center" >
-  <h1>Collaboration   |  Learning</h1>
-  <p>More you collaborate, more you learn!</p>
-</div>
+
 </body>
 </html>
